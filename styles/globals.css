@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+}
+
+@theme inline {
+  --color-bg: var(--background);
+  --font-sans: var(--font-enter-font);
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+  }
+} */
+
+body {
+  @apply bg-bg;
+}
