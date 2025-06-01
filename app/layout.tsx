@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import "@/styles/globals.css";
-import { font } from "@/data/fonts.data";
+import "@/styles/globals.styles.css";
+import { fonts } from "@/data/fonts.data";
 
 export const metadata: Metadata = {
   title: "Enter Title",
@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${font} antialiased`}>{children}</body>
+      <body className={`${fonts} antialiased`}>{children}</body>
     </html>
   );
 }

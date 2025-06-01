@@ -1,0 +1,7 @@
+h1 {
+  @apply font-dec-brand font-medium text-5xl;
+}
+
+p {
+  @apply font-dec-text;
+}

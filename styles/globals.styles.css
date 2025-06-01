@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@import "./_texts.styles.css";
+
+:root {
+  --bg: #f6f5f1;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --font-dec-display: var(--font-decathlon-display);
+  --font-dec-brand: var(--font-decathlon-brand);
+  --font-dec-text: var(--font-decathlon-text);
+  --font-casey: var(--font-casey);
+}
+
+body {
+  @apply bg-bg;
+}
