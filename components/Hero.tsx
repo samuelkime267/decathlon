@@ -1,16 +1,17 @@
 import { useStore } from "@/store/loader.store";
 import gsap from "gsap";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export default function Hero() {
+  const [startLoader, setStartLoader] = useState(false);
   const heroContainer = useRef<HTMLDivElement>(null);
   const { isLoaderDone } = useStore((state) => state.loader);
 
   useEffect(() => {
-    if (!isLoaderDone) return;
+    if (!isLoaderDone || !startLoader) return;
 
     const ctx = gsap.context(() => {
-      if (!heroContainer.current || !isLoaderDone) return;
+      if (!heroContainer.current || !isLoaderDone || !startLoader) return;
       const q = gsap.utils.selector(heroContainer.current);
       const heroVideoContainer = q(".hero-video-container");
       const tl = gsap.timeline();
@@ -26,7 +27,7 @@ export default function Hero() {
     });
 
     return () => ctx.revert();
-  }, [isLoaderDone]);
+  }, [isLoaderDone, startLoader]);
 
   return (
     <section
@@ -35,8 +36,10 @@ export default function Hero() {
     >
       <div className="hero-video-container w-full h-full rotate-12">
         <video
-          onLoadedData={() => console.log("loaded")}
-          onPlay={() => console.log("play")}
+          onLoadedData={(e) => {
+            const video = e.target as HTMLVideoElement;
+            if (video.readyState === 4) setStartLoader(true);
+          }}
           autoPlay
           muted
           loop
