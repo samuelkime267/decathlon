@@ -38,7 +38,11 @@ export default function Hero() {
         <video
           onLoadedData={(e) => {
             const video = e.target as HTMLVideoElement;
-            if (video.readyState === 4) setStartLoader(true);
+            console.log(e.target);
+
+            console.log(video.readyState);
+
+            if (video.readyState >= 3) setStartLoader(true);
           }}
           autoPlay
           muted
