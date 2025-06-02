@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import trackingImg from "@/assets/imgs/others/Image-tracking.webp";
 import { Play } from "./icons";
+import SplitText from "gsap/dist/SplitText";
 
 export default function Hero() {
   const [startLoader, setStartLoader] = useState(false);
@@ -16,6 +17,7 @@ export default function Hero() {
       //|| !startLoader
     )
       return;
+    gsap.registerPlugin(SplitText);
 
     const ctx = gsap.context(() => {
       if (
@@ -28,16 +30,34 @@ export default function Hero() {
       const q = gsap.utils.selector(heroContainer.current);
       // const heroVideoContainer = q(".hero-video-container");
       const heroContainerHolder = q(".hero-container-holder");
+      const heroText = q(".hero-text");
+
+      const split = new SplitText(heroText, {
+        type: "words",
+        mask: "words",
+        wordsClass: "translate-y-full",
+      });
+
       const tl = gsap.timeline();
 
       tl.to(heroContainerHolder, {
         clipPath: "inset(1% round 20px)",
         rotate: 0,
         duration: 1,
-      }).to(heroContainerHolder, {
-        clipPath: "inset(0% round 0px)",
-        duration: 0.35,
-      });
+      })
+        .to(heroContainerHolder, {
+          clipPath: "inset(0% round 0px)",
+          duration: 0.35,
+        })
+        .to(
+          split.words,
+          {
+            y: 0,
+            duration: 0.4,
+            stagger: 0.04,
+          },
+          "-=0.75"
+        );
     });
 
     return () => ctx.revert();
@@ -68,7 +88,7 @@ export default function Hero() {
         <div className="absolute top-0 left-0 w-full h-full p-4">
           <div className="w-full h-full relative flex items-center justify-center flex-col">
             <div className="">
-              <h1 className="text-pri text-9xl max-w-[20pc] lg:max-w-[40pc] text-center">
+              <h1 className="hero-text text-pri text-9xl max-w-[20pc] lg:max-w-[40pc] text-center">
                 Feel alive in every footstep
               </h1>
             </div>
