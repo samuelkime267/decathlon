@@ -1,3 +1,7 @@
 .hero-video-container {
+  /* clip-path: inset(100% round 20px); */
+}
+
+.hero-container-holder {
   clip-path: inset(100% round 20px);
 }

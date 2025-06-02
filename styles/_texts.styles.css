@@ -1,5 +1,5 @@
 h1 {
-  @apply font-dec-brand font-medium text-5xl;
+  @apply font-dec-brand font-medium text-5xl lg:text-8xl;
 }
 
 p {

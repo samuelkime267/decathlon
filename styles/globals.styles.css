@@ -5,10 +5,14 @@
 
 :root {
   --bg: #f6f5f1;
+  --pri: #f5f4ef;
+  --sec: #2a2829;
 }
 
 @theme inline {
   --color-bg: var(--bg);
+  --color-pri: var(--pri);
+  --color-sec: var(--sec);
   --font-dec-display: var(--font-decathlon-display);
   --font-dec-brand: var(--font-decathlon-brand);
   --font-dec-text: var(--font-decathlon-text);

@@ -59,7 +59,7 @@ export default function Loader() {
   return (
     <div
       ref={loaderContainer}
-      className="fixed top-0 left-0 w-full h-full z-40 bg-bg"
+      className="fixed top-0 left-0 w-full h-full z-30 bg-bg"
     >
       <div className="relative w-full h-full flex items-center justify-center">
         <div className="relative w-full h-full">
