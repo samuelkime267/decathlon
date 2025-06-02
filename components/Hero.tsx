@@ -34,7 +34,14 @@ export default function Hero() {
       className="relative z-50 w-full h-screen overflow-hidden"
     >
       <div className="hero-video-container w-full h-full rotate-12">
-        <video autoPlay muted loop className="w-full h-full object-cover">
+        <video
+          onLoadedData={() => console.log("loaded")}
+          onPlay={() => console.log("play")}
+          autoPlay
+          muted
+          loop
+          className="w-full h-full object-cover"
+        >
           <source src={"/videos/hero-loop.mp4"} type="video/mp4" />
         </video>
       </div>
