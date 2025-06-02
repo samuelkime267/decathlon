@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import "./_texts.styles.css";
+@import "./_keyframes.styles.css";
+@import "./_components.styles.css";
 
 :root {
   --bg: #f6f5f1;

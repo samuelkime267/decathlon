@@ -1,0 +1,36 @@
+@keyframes wiggle {
+  0% {
+    transform: skewX(0) skewY(0) translateY(1px);
+  }
+  17% {
+    transform: skewX(0.5deg) skewY(0.1deg) translate(-1px, -1px);
+  }
+  32% {
+    transform: skewX(0.5deg) skewY(0deg) translate(0);
+  }
+  48% {
+    transform: skewX(0deg) skewY(0deg) translate(0);
+  }
+  63% {
+    transform: skewX(-0.5deg) skewY(-0.1deg) translate(1px);
+  }
+  79% {
+    transform: skewX(-0.1deg) skewY(0.1deg) translateY(-1px);
+  }
+  100% {
+    transform: skewX(0deg) skewY(0deg) translate(0);
+  }
+}
+
+.wiggle-animation {
+  animation: wiggle 0.75s ease-in-out infinite;
+}
+
+.wiggle {
+  position: relative;
+  &::after {
+    content: attr(data-text);
+    animation: wiggle 0.75s ease-in-out infinite;
+    @apply absolute top-0 left-0;
+  }
+}
