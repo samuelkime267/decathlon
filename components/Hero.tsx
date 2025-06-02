@@ -26,7 +26,7 @@ export default function Hero() {
         return;
 
       const q = gsap.utils.selector(heroContainer.current);
-      const heroVideoContainer = q(".hero-video-container");
+      // const heroVideoContainer = q(".hero-video-container");
       const heroContainerHolder = q(".hero-container-holder");
       const tl = gsap.timeline();
 
