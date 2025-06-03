@@ -101,7 +101,7 @@ export default function Nav() {
   return (
     <nav
       ref={navRef}
-      className="fixed top-4 left-4 bg-sec/60 backdrop-blur-sm w-[6.625rem] rounded-2xl flex flex-col items-start justify-start p-1"
+      className="fixed bottom-4 max-lg:left-1/2 max-lg:-translate-x-1/2 lg:top-4 lg:left-4 bg-sec/60 backdrop-blur-sm w-[6.625rem] rounded-2xl flex flex-col items-start justify-start p-1 h-fit"
     >
       <div className="w-full flex items-center justify-between gap-4 px-2 py-1">
         <div className="relative overflow-hidden">
@@ -126,7 +126,7 @@ export default function Nav() {
           {navMenuLinks.map(({ img, name }, i) => (
             <div
               key={i}
-              className="nav-links flex items-center justify-between gap-4 w-full hover:bg-pri/15 p-1 pr-2 rounded-lg"
+              className="nav-links flex items-center justify-between gap-4 w-full hover:bg-pri/15 p-1 pr-2 rounded-lg cursor-pointer"
             >
               <div className="flex items-center justify-start gap-2">
                 <div className="size-12 bg-pri rounded-md overflow-hidden img-holder scale-0 rotate-[30deg]">

@@ -12,11 +12,7 @@ export default function Hero() {
   const { isLoaderDone } = useStore((state) => state.loader);
 
   useEffect(() => {
-    if (
-      !isLoaderDone
-      //|| !startLoader
-    )
-      return;
+    if (!isLoaderDone || !startLoader) return;
     gsap.registerPlugin(SplitText);
 
     const ctx = gsap.context(() => {

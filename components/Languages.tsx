@@ -98,7 +98,7 @@ export default function Languages() {
             return (
               <div
                 key={i}
-                className="w-full hover:bg-pri/20 p-2 rounded-md overflow-hidden"
+                className="w-full hover:bg-pri/20 p-2 rounded-md overflow-hidden cursor-pointer"
               >
                 <p className="!font-dec-display text-xs text-pri capitalize translate-y-[150%] text-nowrap language-link-name">
                   {language}
