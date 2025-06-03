@@ -20,12 +20,7 @@ export default function Hero() {
     gsap.registerPlugin(SplitText);
 
     const ctx = gsap.context(() => {
-      if (
-        !heroContainer.current ||
-        !isLoaderDone
-        // || !startLoader
-      )
-        return;
+      if (!heroContainer.current || !isLoaderDone || !startLoader) return;
 
       const q = gsap.utils.selector(heroContainer.current);
       const heroContainerHolder = q(".hero-container-holder");
