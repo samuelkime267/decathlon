@@ -23,6 +23,7 @@ export default function Hero() {
       const heroText = q(".hero-text");
       const heroViewFullVideo = q(".hero-view-full-video");
       const heroViewFullVideoImg = q(".hero-view-full-video-img");
+      const showVideoHolder = q(".show-video-holder");
       const header = document.querySelector("header");
 
       if (!header) return;
@@ -78,6 +79,14 @@ export default function Hero() {
             duration: 0.35,
           },
           "-=0.25"
+        )
+        .to(
+          showVideoHolder,
+          {
+            opacity: 1,
+            duration: 0.35,
+          },
+          "<"
         );
     });
 
@@ -108,10 +117,17 @@ export default function Hero() {
 
         <div className="absolute top-0 left-0 w-full h-full p-4">
           <div className="w-full h-full relative flex items-center justify-center flex-col">
-            <div className="">
+            <div className="flex items-center justify-center flex-col gap-8">
               <h1 className="hero-text text-pri text-9xl max-w-[20pc] lg:max-w-[40pc] text-center">
                 Feel alive in every footstep
               </h1>
+
+              <div className="show-video-holder flex items-center justify-center gap-4 opacity-0">
+                <p className="text-pri">Discover full video</p>
+                <div className="bg-pri p-2.5 rounded-full w-fit">
+                  <Play className="size-2.5 text-sec" />
+                </div>
+              </div>
             </div>
 
             <div className="absolute bottom-0 left-0 mt-auto w-full hidden lg:flex items-end justify-between ">

@@ -28,7 +28,7 @@ export default function Nav() {
       showNavTl
         .fromTo(
           navRef.current,
-          { width: 106, borderRadius: 16 },
+          { width: 124, borderRadius: 24 },
           {
             width: 192,
             borderRadius: 12,
@@ -101,7 +101,7 @@ export default function Nav() {
   return (
     <nav
       ref={navRef}
-      className="fixed bottom-4 max-lg:left-1/2 max-lg:-translate-x-1/2 lg:top-4 lg:left-4 bg-sec/60 backdrop-blur-sm w-[6.625rem] rounded-2xl flex flex-col items-start justify-start p-1 h-fit"
+      className="fixed bottom-4 max-lg:left-1/2 max-lg:-translate-x-1/2 lg:top-4 lg:left-4 bg-sec/60 backdrop-blur-sm w-[7.75rem] rounded-3xl flex flex-col items-start justify-start p-1 h-fit"
     >
       <div className="w-full flex items-center justify-between gap-4 px-2 py-1">
         <div className="relative overflow-hidden">
@@ -109,7 +109,7 @@ export default function Nav() {
             <p
               key={i}
               className={cn(
-                "!font-dec-display text-xs text-pri capitalize font-medium",
+                "!font-dec-display lg:text-xs text-pri capitalize font-medium",
                 { "absolute top-0 left-0 translate-y-full": i !== 0 }
               )}
             >
@@ -137,7 +137,7 @@ export default function Nav() {
                   />
                 </div>
                 <div className="overflow-hidden">
-                  <p className="!font-dec-display text-xs text-pri capitalize nav-link-name translate-y-full">
+                  <p className="!font-dec-display lg:text-xs text-pri capitalize nav-link-name translate-y-full">
                     {name}
                   </p>
                 </div>
