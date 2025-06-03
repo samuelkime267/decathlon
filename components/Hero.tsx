@@ -28,9 +28,13 @@ export default function Hero() {
         return;
 
       const q = gsap.utils.selector(heroContainer.current);
-      // const heroVideoContainer = q(".hero-video-container");
       const heroContainerHolder = q(".hero-container-holder");
       const heroText = q(".hero-text");
+      const heroViewFullVideo = q(".hero-view-full-video");
+      const heroViewFullVideoImg = q(".hero-view-full-video-img");
+      const header = document.querySelector("header");
+
+      if (!header) return;
 
       const split = new SplitText(heroText, {
         type: "words",
@@ -57,6 +61,32 @@ export default function Hero() {
             stagger: 0.04,
           },
           "-=0.75"
+        )
+        .to(
+          heroViewFullVideo,
+          {
+            translateY: 0,
+            opacity: 1,
+            duration: 0.7,
+          },
+          "-=0.5"
+        )
+        .to(
+          heroViewFullVideoImg,
+          {
+            opacity: 1,
+            duration: 0.4,
+          },
+          "-=0.5"
+        )
+        .to(
+          header,
+          {
+            opacity: 1,
+            pointerEvents: "auto",
+            duration: 0.35,
+          },
+          "-=0.25"
         );
     });
 
@@ -69,7 +99,7 @@ export default function Hero() {
       ref={heroContainer}
       className="relative z-40 w-full h-screen overflow-hidden"
     >
-      <div className="hero-container-holder relative w-full h-full rotate-12">
+      <div className="hero-container-holder relative w-full h-full rotate-[30deg]">
         <div className="hero-video-container w-full h-full">
           <video
             onLoadedData={(e) => {
@@ -101,12 +131,12 @@ export default function Hero() {
                 scroll to see full collection
               </p>
 
-              <div className="bg-pri grid grid-cols-[1fr_auto] gap-1.5 p-1 rounded-[0.8rem] cursor-pointer group">
+              <div className="hero-view-full-video bg-pri grid grid-cols-[1fr_auto] gap-1.5 p-1 rounded-[0.8rem] cursor-pointer group translate-y-[120%]">
                 <div className="w-32 h-auto aspect-[1.6] overflow-hidden rounded-lg">
                   <Image
                     src={trackingImg}
                     alt="tracking image"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 opacity-0 hero-view-full-video-img"
                   />
                 </div>
 
