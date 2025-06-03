@@ -122,7 +122,7 @@ export default function Hero() {
                 Feel alive in every footstep
               </h1>
 
-              <div className="show-video-holder flex items-center justify-center gap-4 opacity-0">
+              <div className="show-video-holder  flex lg:hidden items-center justify-center gap-4 opacity-0">
                 <p className="text-pri">Discover full video</p>
                 <div className="bg-pri p-2.5 rounded-full w-fit">
                   <Play className="size-2.5 text-sec" />
